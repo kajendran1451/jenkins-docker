@@ -19,5 +19,15 @@ pipeline{
                 }
             }
      }
+    stage('deploy docker image'){
+      steps {
+        script {
+          withCredentials([string(credentialsId: 'kajendran', variable: 'dockerpwd')]) {
+    sh 'docker login -u kajendran -p ${dockerpwd}'
+}
+          sh 'docker push kaj/my-app-1.0 .'
+        }
+      }
+    }
 }
 }
