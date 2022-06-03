@@ -7,7 +7,7 @@ pipeline{
           }
        }
     }
-   stage('Build Docker Image') {
+   stage('Docker Image') {
             steps {
                 script {
                   sh 'docker build -t devopshint/my-app-1.0 .'
