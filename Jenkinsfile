@@ -22,7 +22,7 @@ pipeline{
     stage('deploy docker image'){
       steps {
         script {
-          withCredentials([string(credentialsId: 'Kajendran1', variable: 'dockerpwd')]) {
+          withCredentials([usernameColonPassword(credentialsId: 'kaji', variable: 'dockerpwd')]) {
     sh 'docker login -u kajendran -p ${dockerpwd}'
 }
           sh 'docker push kaj/my-app-1.0 .'
