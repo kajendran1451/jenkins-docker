@@ -15,7 +15,7 @@ pipeline{
    stage('Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t kaj1/my-app-1.0 '
+                  sh 'docker build -t kaj14/my-app-1.0'
                 }
             }
      }
