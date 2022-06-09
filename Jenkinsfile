@@ -1,9 +1,5 @@
 pipeline{
   agent any
-  environment{
-    dockerimage = ''
-    registry = 'kajendran1451/kaj'
-  }
   stages{
     stage('checkout'){
           steps{
@@ -19,10 +15,19 @@ pipeline{
    stage('Docker Image') {
             steps {
                 script {
-                  sh 'docker image = docker.build registry'
+                  sh 'docker build -t kaj14/my-app-1.0'
                 }
             }
      }
-  }
+    stage('deploy docker image'){
+      steps {
+        script {
+          withCredentials([usernameColonPassword(credentialsId: 'kajendran1', variable: 'dockerpawd')]) {
+    sh 'docker login -u kajendran1 -p ${dockerpawd}'
 }
-
+          sh 'docker push kajendran1/my-app-1.0 .'
+        }
+      }
+    }
+}
+}
