@@ -1,8 +1,5 @@
 pipeline{
   agent any
-  environment {
-    docker { image 'kaj14/my-app-1.0' }
-  }
   stages{
     stage('checkout'){
           steps{
@@ -16,7 +13,10 @@ pipeline{
           }
        }
    stage('Docker Image') {
-            steps {
+     agent {
+    docker { image 'kaj14/my-app-1.0' }
+  }
+             steps {
                 script {
                   sh 'docker build -t kaj14/my-app-1.0'
                 }
