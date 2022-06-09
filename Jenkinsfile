@@ -1,5 +1,8 @@
 pipeline{
-  agent any
+  agent 
+  [
+    docker { image 'kaj14/my-app-1.0' }
+    ]
   stages{
     stage('checkout'){
           steps{
