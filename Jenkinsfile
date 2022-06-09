@@ -14,7 +14,7 @@ pipeline{
        }
    stage('Docker Image') {
      agent {
-    docker { image 'kaj14/my-app-1.0' }
+    sh docker { image 'kaj14/my-app-1.0' }
   }
              steps {
                 script {
