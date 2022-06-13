@@ -28,7 +28,7 @@ pipeline{
           sh 'docker push kajendran1451/my-app-1.0'
         }
       }
-     
+    }
     
 }
 }
