@@ -13,8 +13,11 @@ pipeline{
                 }
             }
      }
-    stage('Docker deployment'){
+    stage('Docker deployment')
+    {
+    steps{
    sh 'docker run -d -p 8090:8080 --name tomcattest kajendran1451/my-app-1.0 ' 
-   }
+    }
+    }
 }
 }
