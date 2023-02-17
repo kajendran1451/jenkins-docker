@@ -1,7 +1,7 @@
 pipeline{
   agent any
   stages{
-    stage('mvn'){
+    stage('mavem'){
           steps{
             sh 'mvn clean install'
           }
