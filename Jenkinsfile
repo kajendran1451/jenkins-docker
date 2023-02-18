@@ -16,7 +16,7 @@ pipeline{
     stage('Docker deployment')
     {
     steps{
-   sh 'docker run -d -p 8092:8080 --name kaj kajendran1451/my-app-1.0 ' 
+   sh 'docker run -d -p 8025:8080 --name kaj1 kajendran1451/my-app-1.0 ' 
     }
     }
 }
