@@ -31,7 +31,7 @@ pipeline{
             ],
             credentialsId: 'nexus',
             groupId: 'junit',
-            nexusUrl: '34.226.154.77:8081',
+            nexusUrl: 'http://34.226.154.77:8081',
             nexusVersion: 'nexus2',
             protocol: 'http',
             repository: 'demo1', 
