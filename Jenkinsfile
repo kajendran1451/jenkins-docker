@@ -6,18 +6,29 @@ pipeline{
             sh 'mvn clean install'
           }
        }
-     stage('Docker Image') {
-             steps {
-                script {
-                  sh 'docker build -t kajendran1451/my-app-1.0 .'
-                }
-            }
-     }
-    stage('Docker deployment')
+    stage ("static code analis")
     {
-    steps{
-   sh 'docker run -d -p 8025:8080 --name kaj1 kajendran1451/my-app-1.0 ' 
+      steps
+      {
+        script{
+        withSonarQubeEnv(credentialsId: 'sonar') {
+   sh 'mvn clean package sonar:sonar'
+        }
+        }
+      }
     }
-    }
+    // stage('Docker Image') {
+     //        steps {
+     //           script {
+      //            sh 'docker build -t kajendran1451/my-app-1.0 .'
+       //         }
+       //     }
+   //  }
+   // stage('Docker deployment')
+   // {
+   // steps{
+  // sh 'docker run -d -p 8025:8080 --name kaj1 kajendran1451/my-app-1.0 ' 
+  //  }
+   // }
 }
 }
